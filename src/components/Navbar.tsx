@@ -64,9 +64,9 @@ const Navbar: React.FC = () => {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden relative z-50 p-2 rounded-full focus:outline-none transition-colors ${scrolled ? 'text-gray-900' : 'text-white'}`}
+            className={`md:hidden relative z-50 p-2 rounded-full focus:outline-none transition-all active:scale-90 ${scrolled ? 'text-gray-900 bg-gray-100' : 'text-white bg-white/10 backdrop-blur-sm'}`}
           >
-            {isOpen ? <X className="h-6 w-6 text-gray-900" /> : <Menu className="h-6 w-6 drop-shadow-md" />}
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </header>
@@ -92,7 +92,7 @@ const Navbar: React.FC = () => {
               }}
               className="group relative"
             >
-              <span className="text-4xl font-bold text-[#0F3D38] uppercase tracking-tighter">
+              <span className="text-4xl font-bold text-[#0F3D38] uppercase tracking-tighter active:opacity-60 transition-opacity">
                 {link.name}
               </span>
               <span className="absolute -bottom-2 left-0 w-0 h-1 bg-[#0F3D38] transition-all duration-300 group-hover:w-full" />

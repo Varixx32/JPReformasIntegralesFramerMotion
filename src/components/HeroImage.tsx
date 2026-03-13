@@ -37,7 +37,7 @@ const HeroImage: React.FC = () => {
                 </h1>
 
                 <div className={`mt-10 transition-all duration-1000 delay-700 transform ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                    <a href="#galeria" className="px-10 py-4 border border-white/30 text-white text-xs tracking-[0.3em] uppercase hover:bg-white hover:text-[#0F3D38] transition-all duration-500 backdrop-blur-sm">
+                    <a href="#galeria" className="px-10 py-4 border border-white/30 text-white text-xs tracking-[0.3em] uppercase hover:bg-white hover:text-[#0F3D38] active:scale-95 transition-all duration-500 backdrop-blur-sm inline-block">
                         Explorar Proyectos
                     </a>
                 </div>

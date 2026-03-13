@@ -28,42 +28,38 @@ const ProductCarousel: React.FC = () => {
                     loop={true}
                     spaceBetween={24}
                     slidesPerView={1}
+                    grabCursor={true}
+                    autoHeight={false}
                     breakpoints={{
-                        640: {
-                            slidesPerView: 2,
-                            spaceBetween: 24,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 32,
-                        },
-                        1280: {
-                            slidesPerView: 4,
-                            spaceBetween: 40,
-                        },
+                        640: { slidesPerView: 2, spaceBetween: 24 },
+                        1024: { slidesPerView: 3, spaceBetween: 32 },
+                        1280: { slidesPerView: 4, spaceBetween: 40 },
                     }}
-                    className="product-carousel-swiper"
+                    className="product-carousel-swiper !pb-16"
                 >
                     {services.map((service, i) => (
-                        <SwiperSlide key={i} className="h-auto pb-12">
-                            <div className="h-full group flex flex-col gap-6 p-8 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-black/5 hover:-translate-y-1">
+                        <SwiperSlide key={i} className="!h-auto">
+                            <div className="h-full group flex flex-col gap-6 p-8 bg-white rounded-3xl shadow-sm hover:shadow-xl active:scale-[0.98] active:shadow-inner transition-all duration-300 border border-black/5 hover:-translate-y-1 select-none">
                                 <div className="flex items-center justify-between">
                                     <span className="text-4xl font-light text-gray-200 group-hover:text-[#0F3D38]/20 transition-colors font-serif">
                                         {service.id}
                                     </span>
-                                    <div className="w-10 h-10 rounded-full bg-[#0F3D38]/5 flex items-center justify-center group-hover:bg-[#0F3D38] transition-colors duration-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#0F3D38] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    <div className="w-12 h-12 rounded-2xl bg-[#0F3D38]/5 flex items-center justify-center group-hover:bg-[#0F3D38] transition-all duration-500 transform group-hover:rotate-12">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#0F3D38] group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                         </svg>
                                     </div>
                                 </div>
-                                <div className="flex-1">
-                                    <h3 className="text-2xl font-semibold text-gray-900 mb-4 group-hover:text-[#0F3D38] transition-colors">
+                                <div className="flex-1 flex flex-col">
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#0F3D38] transition-colors leading-tight">
                                         {service.title}
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed text-sm md:text-base font-light">
                                         {service.description}
                                     </p>
+                                </div>
+                                <div className="pt-4 mt-auto">
+                                    <div className="h-[2px] w-0 bg-[#0F3D38]/20 group-hover:w-full transition-all duration-500" />
                                 </div>
                             </div>
                         </SwiperSlide>
