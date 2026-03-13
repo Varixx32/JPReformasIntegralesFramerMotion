@@ -73,26 +73,39 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+        className={`fixed inset-0 z-40 transition-all duration-500 ease-[cubic-bezier(0.16, 1, 0.3, 1)] ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
           }`}
-        style={{ transform: isOpen ? 'scale(1)' : 'scale(0.95)' }}
       >
-        {navLinks.map((link, index) => (
-          <a
-            key={link.name}
-            href={link.href}
-            onClick={() => setIsOpen(false)}
-            style={{
-              transitionDelay: isOpen ? `${index * 100 + 100}ms` : '0ms',
-              transform: isOpen ? 'translateY(0)' : 'translateY(-20px)',
-              opacity: isOpen ? 1 : 0,
-              transition: 'all 0.4s ease-out'
-            }}
-            className="text-2xl font-semibold text-gray-900 hover:text-[#0F3D38]"
+        <div className="absolute inset-0 bg-white/90 backdrop-blur-xl" />
+
+        <nav className="relative h-full flex flex-col items-center justify-center gap-10 px-6">
+          {navLinks.map((link, index) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              style={{
+                transitionDelay: isOpen ? `${index * 100 + 200}ms` : '0ms',
+                transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
+                opacity: isOpen ? 1 : 0,
+                transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+              className="group relative"
+            >
+              <span className="text-4xl font-bold text-[#0F3D38] uppercase tracking-tighter">
+                {link.name}
+              </span>
+              <span className="absolute -bottom-2 left-0 w-0 h-1 bg-[#0F3D38] transition-all duration-300 group-hover:w-full" />
+            </a>
+          ))}
+
+          <div
+            className={`mt-12 transition-all duration-700 delay-500 flex gap-6 ${isOpen ? 'opacity-60 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
-            {link.name}
-          </a>
-        ))}
+            {/* Simple social icons or info could go here for "flawless" feel */}
+            <p className="text-[#0F3D38] text-xs tracking-widest uppercase">Barcelona • JP Reformas</p>
+          </div>
+        </nav>
       </div>
     </>
   );
