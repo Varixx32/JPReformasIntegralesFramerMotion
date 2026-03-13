@@ -16,11 +16,14 @@ const HeroImage: React.FC = () => {
             >
                 <div className="absolute inset-0 bg-black/40 z-10" />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#0F3D38]/60 z-10" />
-                <img
-                    src="/assets/HeroImage.jpg"
-                    alt="Banner Reformas Integrales"
-                    className="w-full h-full object-cover"
-                />
+                <picture>
+                    <source media="(max-width: 768px)" srcSet="/assets/HeroImageMovil.jpg" />
+                    <img
+                        src="/assets/HeroImage.jpg"
+                        alt="Banner Reformas Integrales"
+                        className="w-full h-full object-cover"
+                    />
+                </picture>
             </div>
 
             {/* Content */}
